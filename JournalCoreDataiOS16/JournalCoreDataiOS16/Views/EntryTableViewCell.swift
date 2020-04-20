@@ -10,7 +10,7 @@ import UIKit
 
 class EntryTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "Journal Cell"
+    static let reuseIdentifier = "EntryCell"
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
