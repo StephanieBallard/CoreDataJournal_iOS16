@@ -137,9 +137,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Entry" id="mVG-7j-Qfm">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eS5-SE-9Ua"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BEW-oU-WOk"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eS5-SE-9Ua">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="BYZ-38-t0r" id="Vcc-JQ-Ms3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BEW-oU-WOk">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="BYZ-38-t0r" id="YrZ-N9-kEd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="entryTextView" destination="oEv-Jp-z9y" id="tfc-9E-2r0"/>
+                        <outlet property="journalEntryTitle" destination="4Hp-um-o2v" id="AwB-FJ-0Ap"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

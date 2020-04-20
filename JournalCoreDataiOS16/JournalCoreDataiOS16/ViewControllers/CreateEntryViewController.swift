@@ -10,11 +10,35 @@ import UIKit
 
 class CreateEntryViewController: UIViewController {
 
+    @IBOutlet weak var journalEntryTitle: UITextField!
+    @IBOutlet weak var entryTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        journalEntryTitle.becomeFirstResponder()
     }
 
-
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let title = journalEntryTitle.text,
+            !title.isEmpty else { return }
+        
+        guard let bodyText = entryTextView.text else { return }
+        
+        Entry(title: title, bodyText: bodyText)
+        do {
+            try CoreDataStack.shared.mainContext.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+            return
+        }
+        
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
