@@ -43,7 +43,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Journal Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XA-ak-U4C">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Body Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XA-ak-U4C">
                                                     <rect key="frame" x="0.0" y="28" width="362.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -57,6 +57,11 @@
                                         <constraint firstItem="hnp-eV-XTS" firstAttribute="centerX" secondItem="PI7-Vs-ydC" secondAttribute="centerX" id="mdi-hp-CLQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bodyTextLabel" destination="9XA-ak-U4C" id="iJL-Dw-4Vd"/>
+                                    <outlet property="dateLabel" destination="1bU-Zn-3Pz" id="ThP-Si-54v"/>
+                                    <outlet property="titleLabel" destination="Wl5-tD-isw" id="mlA-Mh-MAE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
