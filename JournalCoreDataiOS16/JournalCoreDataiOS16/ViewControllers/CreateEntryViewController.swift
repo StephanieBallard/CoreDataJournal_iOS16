@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CreateEntryViewController.swift
 //  JournalCoreDataiOS16
 //
 //  Created by Stephanie Ballard on 4/20/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CreateEntryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
