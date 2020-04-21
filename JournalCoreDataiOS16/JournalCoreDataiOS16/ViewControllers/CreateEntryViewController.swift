@@ -30,7 +30,7 @@ class CreateEntryViewController: UIViewController {
         
         guard let bodyText = entryTextView.text else { return }
         
-        Entry(title: title, bodyText: bodyText)
+        Entry(title: title, bodyText: bodyText, mood: <#String#>)
         do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
