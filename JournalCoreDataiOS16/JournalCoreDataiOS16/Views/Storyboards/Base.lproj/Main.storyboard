@@ -97,13 +97,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uHr-CA-dOK">
                                 <rect key="frame" x="20" y="108" width="374" height="375"/>
                                 <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Ew-oc-pKB">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                        <segments>
+                                            <segment title=" 🥰"/>
+                                            <segment title=" 😕"/>
+                                            <segment title="😤"/>
+                                        </segments>
+                                    </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Journal Entry Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hp-um-o2v">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
+                                        <rect key="frame" x="0.0" y="46" width="374" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U5s-lw-05e">
-                                        <rect key="frame" x="0.0" y="37" width="374" height="338"/>
+                                        <rect key="frame" x="0.0" y="83" width="374" height="292"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y3-7Y-A1x">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
@@ -119,7 +127,7 @@
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oEv-Jp-z9y">
-                                                <rect key="frame" x="0.0" y="38.5" width="374" height="299.5"/>
+                                                <rect key="frame" x="0.0" y="38.5" width="374" height="253.5"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -156,6 +164,7 @@
                     <connections>
                         <outlet property="entryTextView" destination="oEv-Jp-z9y" id="tfc-9E-2r0"/>
                         <outlet property="journalEntryTitle" destination="4Hp-um-o2v" id="AwB-FJ-0Ap"/>
+                        <outlet property="moodSegmentedControl" destination="9Ew-oc-pKB" id="8JK-3r-fmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

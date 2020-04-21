@@ -12,6 +12,7 @@ class CreateEntryViewController: UIViewController {
 
     @IBOutlet weak var journalEntryTitle: UITextField!
     @IBOutlet weak var entryTextView: UITextView!
+    @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
