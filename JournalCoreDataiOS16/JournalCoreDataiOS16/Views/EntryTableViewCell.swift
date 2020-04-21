@@ -12,6 +12,13 @@ class EntryTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "EntryCell"
     
+    var dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var bodyTextLabel: UILabel!
@@ -23,10 +30,14 @@ class EntryTableViewCell: UITableViewCell {
     }
 
     private func updateViews() {
-        guard let entry = entry else { return }
+        guard let entry = entry,
+            let timestamp = entry.timestamp else { return }
         
         titleLabel.text = entry.title
-        dateLabel.text = "\(String(describing: entry.timestamp))"
         bodyTextLabel.text = entry.bodyText
+        let entryTimestamp = dateFormatter.string(from: timestamp)
+        dateLabel.text = entryTimestamp
+        
     }
 }
+
