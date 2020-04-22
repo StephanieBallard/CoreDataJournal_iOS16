@@ -10,6 +10,13 @@ import UIKit
 
 class EntryDetailViewController: UIViewController {
 
+    var entry: Entry?
+    var wasEdited: Bool = false
+    
+    @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var entryTextField: UITextField!
+    @IBOutlet weak var entryTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
