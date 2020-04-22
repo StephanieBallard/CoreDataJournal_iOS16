@@ -20,9 +20,27 @@ class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = editButtonItem
+        updateViews()
     }
     
+    private func updateViews() {
+        entryTextField.text = entry?.title
+        entryTextField.isUserInteractionEnabled = isEditing
+        
+        entryTextField.text = entry?.bodyText
+        entryTextField.isUserInteractionEnabled = isEditing
+        
+        let mood: EntryMood
+        if let entryMood = entry?.mood {
+            mood = EntryMood(rawValue: entryMood)!
+        } else {
+            mood = .neutral
+        }
+        
+        moodSegmentedControl.selectedSegmentIndex = EntryMood.allCases.firstIndex(of: mood) ?? 1
+        moodSegmentedControl.isUserInteractionEnabled = isEditing
+    }
 
     /*
     // MARK: - Navigation
