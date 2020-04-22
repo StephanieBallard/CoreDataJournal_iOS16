@@ -66,6 +66,7 @@
                                     <outlet property="bodyTextLabel" destination="dvB-NW-k1F" id="DhS-y3-ShU"/>
                                     <outlet property="dateLabel" destination="Dkx-zH-oA5" id="vkp-9Q-lj5"/>
                                     <outlet property="titleLabel" destination="1Le-tL-z9q" id="CFV-mU-ZNy"/>
+                                    <segue destination="Eh1-o9-5zd" kind="show" identifier="EntryDetailShowSegue" id="ypI-h5-KCm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,6 +86,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg0-PS-L19" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="169.56521739130437" y="137.94642857142856"/>
+        </scene>
+        <!--Entry Details-->
+        <scene sceneID="Siq-5A-3qP">
+            <objects>
+                <viewController id="Eh1-o9-5zd" customClass="EntryDetailViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aNP-U6-841">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hmc-qn-kZe">
+                                <rect key="frame" x="20" y="160" width="374" height="375"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UMe-HD-f8C">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                        <segments>
+                                            <segment title=" 🥰"/>
+                                            <segment title=" 😕"/>
+                                            <segment title="😤"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Journal Entry Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w2u-Il-fMD">
+                                        <rect key="frame" x="0.0" y="46" width="374" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rBw-Mk-GD3">
+                                        <rect key="frame" x="0.0" y="83" width="374" height="292"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P38-H8-lGg">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erg-R3-i0W">
+                                                <rect key="frame" x="0.0" y="28.5" width="374" height="2"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="ulg-uz-rIb"/>
+                                                </constraints>
+                                            </view>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wq5-wu-kKJ">
+                                                <rect key="frame" x="0.0" y="38.5" width="374" height="253.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="itY-0W-4uQ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hmc-qn-kZe" firstAttribute="leading" secondItem="nZ6-gc-G7y" secondAttribute="leading" constant="20" id="0rh-Oi-zGj"/>
+                            <constraint firstItem="nZ6-gc-G7y" firstAttribute="trailing" secondItem="hmc-qn-kZe" secondAttribute="trailing" constant="20" id="OYe-nB-vfb"/>
+                            <constraint firstItem="hmc-qn-kZe" firstAttribute="top" secondItem="nZ6-gc-G7y" secondAttribute="top" constant="20" id="oNb-Y8-KPu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nZ6-gc-G7y"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Entry Details" id="dEy-ti-wKI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qo2-5N-lKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="946" y="429"/>
         </scene>
         <!--Create Entry-->
         <scene sceneID="tne-QT-ifu">
