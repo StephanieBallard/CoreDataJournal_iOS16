@@ -24,12 +24,26 @@ class EntryDetailViewController: UIViewController {
         updateViews()
     }
     
+    // MARK: - Editing -
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if editing { wasEdited = true }
+        
+        entryTextField.isUserInteractionEnabled = editing
+        entryTextView.isUserInteractionEnabled = editing
+        moodSegmentedControl.isUserInteractionEnabled = editing
+        
+        navigationItem.hidesBackButton = editing
+    }
+    
     private func updateViews() {
         entryTextField.text = entry?.title
         entryTextField.isUserInteractionEnabled = isEditing
         
-        entryTextField.text = entry?.bodyText
-        entryTextField.isUserInteractionEnabled = isEditing
+        entryTextView.text = entry?.bodyText
+        entryTextView.isUserInteractionEnabled = isEditing
         
         let mood: EntryMood
         if let entryMood = entry?.mood {
