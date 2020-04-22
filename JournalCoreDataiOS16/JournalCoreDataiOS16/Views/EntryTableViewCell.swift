@@ -38,6 +38,7 @@ class EntryTableViewCell: UITableViewCell {
         let entryTimestamp = dateFormatter.string(from: timestamp)
         dateLabel.text = entryTimestamp
         
+        
     }
 }
 

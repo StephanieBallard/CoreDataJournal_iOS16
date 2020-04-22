@@ -32,7 +32,8 @@ class CreateEntryViewController: UIViewController {
         let moodIndex = moodSegmentedControl.selectedSegmentIndex
         let mood = EntryMood.allCases[moodIndex]
         
-        Entry(title: title, bodyText: bodyText, mood: mood)
+        let newEntry = Entry(title: title, bodyText: bodyText, mood: mood)
+        print(newEntry.mood)
         do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
