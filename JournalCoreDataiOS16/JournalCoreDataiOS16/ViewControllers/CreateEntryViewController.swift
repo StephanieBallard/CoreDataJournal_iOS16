@@ -10,6 +10,8 @@ import UIKit
 
 class CreateEntryViewController: UIViewController {
 
+    var entryController: EntryController?
+    
     @IBOutlet weak var journalEntryTitle: UITextField!
     @IBOutlet weak var entryTextView: UITextView!
     @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
@@ -33,7 +35,8 @@ class CreateEntryViewController: UIViewController {
         let mood = EntryMood.allCases[moodIndex]
         
         let newEntry = Entry(title: title, bodyText: bodyText, mood: mood)
-        print(newEntry.mood)
+        //print(newEntry.mood)
+        entryController?.sendEntryToServer(entry: newEntry)
         do {
             try CoreDataStack.shared.mainContext.save()
         } catch {
