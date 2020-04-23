@@ -10,8 +10,13 @@ import UIKit
 
 class EntryDetailViewController: UIViewController {
 
-    var entry: Entry?
+    var entry: Entry? {
+        didSet {
+            
+        }
+    }
     var wasEdited: Bool = false
+    let mood: EntryMood = .neutral
     
     @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
     @IBOutlet weak var entryTextField: UITextField!
@@ -64,21 +69,20 @@ class EntryDetailViewController: UIViewController {
     }
     
     private func updateViews() {
-        entryTextField.text = entry?.title
-        entryTextField.isUserInteractionEnabled = isEditing
-        
-        entryTextView.text = entry?.bodyText
-        entryTextView.isUserInteractionEnabled = isEditing
-        
-        let mood: EntryMood
-        if let entryMood = entry?.mood {
-            mood = EntryMood(rawValue: entryMood)!
-        } else {
-            mood = .neutral
+        if entry != nil {
+            entryTextField.text = entry?.title
+            entryTextField.isUserInteractionEnabled = isEditing
+            
+            entryTextView.text = entry?.bodyText
+            entryTextView.isUserInteractionEnabled = isEditing
+            
+            guard let entriesMood = entry?.mood else { return }
+           
+           
+            moodSegmentedControl.selectedSegmentIndex = EntryMood.allCases.firstIndex(of: EntryMood(rawValue: entriesMood)!)!
+            moodSegmentedControl.isUserInteractionEnabled = isEditing
+            
         }
-        
-        moodSegmentedControl.selectedSegmentIndex = EntryMood.allCases.firstIndex(of: mood) ?? 1
-        moodSegmentedControl.isUserInteractionEnabled = isEditing
     }
 
     /*
