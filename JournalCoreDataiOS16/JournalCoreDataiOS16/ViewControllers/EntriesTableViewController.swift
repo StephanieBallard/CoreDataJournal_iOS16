@@ -62,9 +62,20 @@ class EntriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            fetchedResultsController.object(at: indexPath)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            let entry = fetchedResultsController.object(at: indexPath)
+            entryController.deleteEntryFromServer(entry: entry) { result in
+                guard let _ = try? result.get() else {
+                    return
+                }
+                
+                CoreDataStack.shared.mainContext.delete(entry)
+                do {
+                    try CoreDataStack.shared.mainContext.save()
+                } catch {
+                    CoreDataStack.shared.mainContext.reset()
+                    NSLog("Error saving managed object context: \(error)")
+                }
+            }
         }
     }
     
