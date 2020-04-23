@@ -11,7 +11,7 @@ import CoreData
 
 class EntriesTableViewController: UITableViewController {
     
-    let taskController = TaskController()
+    let entryController = EntryController()
     
     //    var entries: [Entry] {
     //        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
@@ -74,9 +74,13 @@ class EntriesTableViewController: UITableViewController {
         if segue.identifier == "AddEntryModalSegue" {
             if let navC = segue.destination as? UINavigationController,
                 let createEntryVC = navC.viewControllers.first as? CreateEntryViewController {
-                createEntryVC.taskController = taskController
+                createEntryVC.entryController = entryController
             }
-        } else if segue.identifier == "" {
+        } else if segue.identifier == "EntryDetailShowSegue" {
+            if let detailVC = segue.destination as? EntryDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.entry = fetchedResultsController.object(at: indexPath)
+            }
             
         }
     }
