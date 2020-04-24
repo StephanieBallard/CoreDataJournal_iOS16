@@ -14,9 +14,9 @@ enum EntryMood: String, CaseIterable {
     case neutral = "😕"
     case unhappy = "😤"
 }
-
+// extending functionality of the core data model
 extension Entry {
-    
+    // to create a local save
     var entryRepresentation: EntryRepresentation? {
         guard let id = identifier,
             let title = title,
@@ -29,10 +29,11 @@ extension Entry {
         return EntryRepresentation(title: title,
                                    bodyText: bodyText,
                                    timestamp: timestamp,
-                                   indentifier: id.uuidString,
+                                   identifier: id.uuidString,
                                    mood: mood)
     }
     
+    // turning my core data model into something that firebase can understand
     @discardableResult convenience init(title: String,
                                         bodyText: String,
                                         timestamp: Date = Date(),
@@ -46,6 +47,27 @@ extension Entry {
         self.timestamp = timestamp
         self.identifier = identifier
         self.mood = mood.rawValue
+    }
+    
+    // representing the json object based on our core data model that we extended from the entry class so that way swift knows what to expect from firebase, via entryRepresentation
+    // firebase data model being coverted into a coredata model
+    // we are telling Entry core data expect and entry representation which is the struct model we wrote for our json
+    @discardableResult convenience init?(entryRepresentation: EntryRepresentation, context: NSManagedObjectContext) {
+        guard let mood = EntryMood(rawValue: entryRepresentation.mood),
+            let indentifier1 = UUID(uuidString: entryRepresentation.identifier) else {
+                return nil
+                
+                
+                
+        }
+        self.init(title: entryRepresentation.title,
+        bodyText: entryRepresentation.bodyText,
+        timestamp: entryRepresentation.timestamp,
+        identifier: indentifier1,
+        mood: mood,
+        context: context)
+        
+                  
     }
 }
 
